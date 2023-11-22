@@ -30,4 +30,8 @@ class Comment(models.Model):
     def __str__(self):
         return f"{self.author} on '{self.post}'"
     
-
+class Visitor(models.Model):
+    count = models.IntegerField(default=0)
+    ip_address = models.GenericIPAddressField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    count = models.IntegerField(default=0)

@@ -1,9 +1,26 @@
 # blog/views.py
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from blog.models import Post, Comment
 from blog.forms import CommentForm
+from .models import Visitor
+
+def home(request):
+    # Retrieve the visitor count from the database
+    visitor_count = Visitor.objects.first().count
+    return render(request, 'index.html', {'blog': visitor_count})
+
+def visitor_count(request):
+    # Retrieve the visitor count from the database
+    visitor_count = Visitor.objects.first().count
+    return render(request, 'blog/index.html', {'blog': visitor_count})
+
+def reset_count(request):
+    if request.method == 'POST':
+        # Reset the visitor count
+        Visitor.objects.update(count=0)
+        return redirect('home')
 
 def blog_index(request):
     posts = Post.objects.all().order_by("-created_on")
