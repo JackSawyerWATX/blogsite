@@ -1,0 +1,19 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>My Blog</title>
+</head>
+
+<body>
+    <h2>The Personal Blog of Jack Sawyer</h2>
+    <a href="{% url "blog_index" %}">Home</a>
+    <hr>
+    {% block page_title %}{% endblock page_title %}
+    {% block page_content %}{% endblock page_content %}
+</body>
+
+</html>
