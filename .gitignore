@@ -3,3 +3,12 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Apprunner Files
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+staticfiles
